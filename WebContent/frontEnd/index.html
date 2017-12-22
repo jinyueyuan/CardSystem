@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>arbor.js project template</title>
+<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
+</head>
+<body>
+<table id="example2" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>email</th>
+                <th>createtime</th>
+                <th>cardid</th>
+                <th>flag</th>
+            </tr>
+    </table>
+  
+
+<!-- jQuery -->
+<script type="text/javascript" charset="utf8" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+ 
+<!-- DataTables -->
+<script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			//var aa = null;
+			/*$.ajax({
+			       type: "GET",
+			       url: "http://120.79.42.137:8080/Entity/Ud7adca934ab4e/Card/Usertest",
+			       dataType:"json",
+			     //  data: {name:$("#username").val()},
+			       success: function(data) {
+			         if(data!=null){
+			        	// gettable(data)
+			        	alert(data['Usertest']);
+			         }
+			         else 
+			        	 alert("登录失败！");
+			       },
+			       error:function(){
+			    	   alert("ajax失败");
+			       }
+			     });*/
+			$('#example2').DataTable( {
+				  ajax: {
+			            url: "http://120.79.42.137:8080/Entity/Ud7adca934ab4e/Card/Usertest",
+			            type: 'GET',
+			            dataSrc:"Usertest"   
+			        },
+			        "columns": [
+						//{ "data": "id" },
+			            { "data": "name" },
+			            { "data": "email" },
+			            { "data": "createtime" },
+			            { "data": "cardid" },
+			            { "data": "flag" }
+			        ]
+		    } );
+		   
+		} );
+		/*function gettable(aa){
+			 $('#example2').DataTable( {
+		    	  "ajax": aa,
+		        "columns": [
+		            { "Usertest": "id" },
+		            { "Usertest": "name" },
+		            { "Usertest": "password" },
+		            { "Usertest": "email" },
+		            { "Usertest": "createtime" },
+		            { "Usertest": "cardid" },
+		            { "Usertest": "flag" }
+		        ]
+		    } );
+		}	*/	
+		</script>
+</body>
+</html>
